@@ -19,6 +19,8 @@ class Template(models.Model):
     """
     name = models.CharField(_('name'), max_length=100,
                             help_text=_("Example: 'flatpages/default.html'"))
+    description = models.CharField(_('Template description'), max_length=100, help_text=_("Model instance text shown in admin area"))
+    
     content = models.TextField(_('content'), blank=True)
     sites = models.ManyToManyField(Site, verbose_name=_(u'sites'),
                                    blank=True)
@@ -37,7 +39,7 @@ class Template(models.Model):
         ordering = ('name',)
 
     def __unicode__(self):
-        return self.name
+        return self.description
 
     def populate(self, name=None):
         """
