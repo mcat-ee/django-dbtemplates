@@ -105,7 +105,7 @@ class TemplateAdmin(TemplateModelAdmin):
         }),
     )
     
-    def edit_template(self.obj):
+    def edit_template(self,obj):
       return "Edit template"
     edit_template.short_description = 'Edit template'
     edit_template.admin_order_field = 'edit'
