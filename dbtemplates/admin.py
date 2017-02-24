@@ -104,8 +104,14 @@ class TemplateAdmin(TemplateModelAdmin):
             'classes': ('collapse',),
         }),
     )
+    
+    def edit_template(self.obj):
+      return "Edit template"
+    edit_template.short_description = 'Edit template'
+    edit_template.admin_order_field = 'edit'
+    
     filter_horizontal = ('sites',)
-    list_display = ('description','name', 'creation_date', 'last_changed', 'site_list')
+    list_display = ('edit_template','description','name', 'creation_date', 'last_changed', 'site_list')
     list_filter = ('sites',)
     save_as = True
     search_fields = ('name', 'content')
